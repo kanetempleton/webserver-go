@@ -17,7 +17,13 @@ func startServer() {
 		fmt.Fprintln(w, "Hello, WebGo!")
 	})
 
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+
 	// Start the HTTP server
 	fmt.Println("Server listening on port 8080")
 	http.ListenAndServe(":8080", nil)
+
+	
 }
