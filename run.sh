@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Compile the Go program
-go build */*.go
+go build
 
 # Check if compilation was successful
 if [ $? -eq 0 ]; then
@@ -12,12 +12,12 @@ if [ $? -eq 0 ]; then
 
     # Check if tests passed
     if [ $? -eq 0 ]; then
-        echo "All tests passed, running the program"
+        echo "All tests passed! Running..."
         
         # Run the compiled Go program
-        ./main
+        ./webgo
     else
-        echo "Tests failed, please address the issues before running the program"
+        echo "Tests failed, please address the issues before running"
     fi
 else
     echo "Compilation failed"
